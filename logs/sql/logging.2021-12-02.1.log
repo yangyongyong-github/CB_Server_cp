@@ -1,0 +1,98 @@
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SELECT count(*) AS `count` FROM `User_Is` AS `User_I`;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SELECT `loan`, `interest` FROM `User_Is` AS `User_I`;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `income` DECIMAL(10,2), `corpus` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SELECT count(*) AS `count` FROM `User_IIs` AS `User_II`;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SELECT `deposit`, `interest` FROM `User_IIs` AS `User_II`;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_Is` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `limited` TINYINT(1) NOT NULL, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `ident` INTEGER NOT NULL, `loan` DECIMAL(10,2), `interest` DECIMAL(10,2), `company` TEXT, `cause` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SHOW INDEX FROM `User_Is`
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_IIs` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `deposit` DECIMAL(10,2), `interest` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SHOW INDEX FROM `User_IIs`
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Rates` (`id` INTEGER NOT NULL auto_increment , `A` DECIMAL(10,2) NOT NULL, `B` DECIMAL(10,2) NOT NULL, `C` DECIMAL(10,2) NOT NULL, `A_1` DECIMAL(10,2) NOT NULL, `A_3` DECIMAL(10,2) NOT NULL, `B_1` DECIMAL(10,2) NOT NULL, `B_3` DECIMAL(10,2) NOT NULL, `L_s` DECIMAL(10,2) NOT NULL, `L_m` DECIMAL(10,2) NOT NULL, `L_l` DECIMAL(10,2) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:57:03] [DEBUG]: Executing (default): SHOW INDEX FROM `Rates`
+
+sql [2021-12-02 10:58:55] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `income`, `corpus`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `income` DECIMAL(10,2), `corpus` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_Is` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `limited` TINYINT(1) NOT NULL, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `ident` INTEGER NOT NULL, `loan` DECIMAL(10,2), `interest` DECIMAL(10,2), `company` TEXT, `cause` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): SHOW INDEX FROM `User_Is`
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_IIs` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `deposit` DECIMAL(10,2), `interest` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): SHOW INDEX FROM `User_IIs`
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Rates` (`id` INTEGER NOT NULL auto_increment , `A` DECIMAL(10,2) NOT NULL, `B` DECIMAL(10,2) NOT NULL, `C` DECIMAL(10,2) NOT NULL, `A_1` DECIMAL(10,2) NOT NULL, `A_3` DECIMAL(10,2) NOT NULL, `B_1` DECIMAL(10,2) NOT NULL, `B_3` DECIMAL(10,2) NOT NULL, `L_s` DECIMAL(10,2) NOT NULL, `L_m` DECIMAL(10,2) NOT NULL, `L_l` DECIMAL(10,2) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 10:59:29] [DEBUG]: Executing (default): SHOW INDEX FROM `Rates`
+
+sql [2021-12-02 10:59:40] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `income`, `corpus`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2021-12-02 11:00:04] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `cage`, `ident`, `loan`, `interest`, `company`, `cause`, `createdAt`, `updatedAt` FROM `User_Is` AS `User_I` WHERE `User_I`.`loginId` = 'admin' AND `User_I`.`loginPwd` = '1234' LIMIT 1;
+
+sql [2021-12-02 11:00:06] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `cage`, `ident`, `loan`, `interest`, `company`, `cause`, `createdAt`, `updatedAt` FROM `User_Is` AS `User_I` WHERE `User_I`.`loginId` = 'admin' AND `User_I`.`loginPwd` = '1234' LIMIT 1;
+
+sql [2021-12-02 11:00:17] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `cage`, `ident`, `loan`, `interest`, `company`, `cause`, `createdAt`, `updatedAt` FROM `User_Is` AS `User_I` WHERE `User_I`.`loginId` = 'chengshennan01' AND `User_I`.`loginPwd` = 'chengshennan01.p' LIMIT 1;
+
+sql [2021-12-02 11:01:25] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `cage`, `deposit`, `interest`, `createdAt`, `updatedAt` FROM `User_IIs` AS `User_II` WHERE `User_II`.`loginId` = 'chengshennan01' AND `User_II`.`loginPwd` = 'chengshennan01.p' LIMIT 1;
+
+sql [2021-12-02 11:01:36] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `cage`, `deposit`, `interest`, `createdAt`, `updatedAt` FROM `User_IIs` AS `User_II` WHERE `User_II`.`loginId` = 'yangxiang01' AND `User_II`.`loginPwd` = 'yangxiang01.p' LIMIT 1;
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `income` DECIMAL(10,2), `corpus` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_Is` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `limited` TINYINT(1) NOT NULL, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `ident` INTEGER NOT NULL, `loan` DECIMAL(10,2), `interest` DECIMAL(10,2), `company` TEXT, `cause` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): SHOW INDEX FROM `User_Is`
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_IIs` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `deposit` DECIMAL(10,2), `interest` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): SHOW INDEX FROM `User_IIs`
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Rates` (`id` INTEGER NOT NULL auto_increment , `A` DECIMAL(10,2) NOT NULL, `B` DECIMAL(10,2) NOT NULL, `C` DECIMAL(10,2) NOT NULL, `A_1` DECIMAL(10,2) NOT NULL, `A_3` DECIMAL(10,2) NOT NULL, `B_1` DECIMAL(10,2) NOT NULL, `B_3` DECIMAL(10,2) NOT NULL, `L_s` DECIMAL(10,2) NOT NULL, `L_m` DECIMAL(10,2) NOT NULL, `L_l` DECIMAL(10,2) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:31:36] [DEBUG]: Executing (default): SHOW INDEX FROM `Rates`
+
+sql [2021-12-02 20:32:01] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `cage`, `deposit`, `interest`, `createdAt`, `updatedAt` FROM `User_IIs` AS `User_II` WHERE `User_II`.`loginId` = 'yangxiang01' AND `User_II`.`loginPwd` = 'yangxiang01.p' LIMIT 1;
+
+sql [2021-12-02 20:32:33] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `cage`, `deposit`, `interest`, `createdAt`, `updatedAt` FROM `User_IIs` AS `User_II` WHERE `User_II`.`loginId` = 'yangxiang01' AND `User_II`.`loginPwd` = 'yangxiang01.p' LIMIT 1;
+
+sql [2021-12-02 20:32:50] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `income`, `corpus`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `income` DECIMAL(10,2), `corpus` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_Is` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `limited` TINYINT(1) NOT NULL, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `ident` INTEGER NOT NULL, `loan` DECIMAL(10,2), `interest` DECIMAL(10,2), `company` TEXT, `cause` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): SHOW INDEX FROM `User_Is`
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_IIs` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `deposit` DECIMAL(10,2), `interest` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): SHOW INDEX FROM `User_IIs`
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Rates` (`id` INTEGER NOT NULL auto_increment , `A` DECIMAL(10,2) NOT NULL, `B` DECIMAL(10,2) NOT NULL, `C` DECIMAL(10,2) NOT NULL, `A_1` DECIMAL(10,2) NOT NULL, `A_3` DECIMAL(10,2) NOT NULL, `B_1` DECIMAL(10,2) NOT NULL, `B_3` DECIMAL(10,2) NOT NULL, `L_s` DECIMAL(10,2) NOT NULL, `L_m` DECIMAL(10,2) NOT NULL, `L_l` DECIMAL(10,2) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-02 20:47:24] [DEBUG]: Executing (default): SHOW INDEX FROM `Rates`
+
+sql [2021-12-02 20:47:29] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `income`, `corpus`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2021-12-02 20:47:47] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `cage`, `deposit`, `interest`, `createdAt`, `updatedAt` FROM `User_IIs` AS `User_II` WHERE `User_II`.`loginId` = 'yangxiang01' AND `User_II`.`loginPwd` = 'yangxiang01.p' LIMIT 1;
+
+sql [2021-12-02 20:48:37] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `cage`, `deposit`, `interest`, `createdAt`, `updatedAt` FROM `User_IIs` AS `User_II` WHERE `User_II`.`loginId` = 'yangxiang01' AND `User_II`.`loginPwd` = 'yangxiang01.p' LIMIT 1;
+

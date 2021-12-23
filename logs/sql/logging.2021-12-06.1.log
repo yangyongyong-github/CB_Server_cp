@@ -1,0 +1,16 @@
+sql [2021-12-06 21:09:23] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `income` DECIMAL(10,2), `corpus` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_Is` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `limited` TINYINT(1) NOT NULL, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `ident` INTEGER NOT NULL, `loan` DECIMAL(10,2), `interest` DECIMAL(10,2), `company` TEXT, `cause` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): SHOW INDEX FROM `User_Is`
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_IIs` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `isFreezed` TINYINT(1) NOT NULL, `cage` VARCHAR(255) NOT NULL, `deposit` DECIMAL(10,2), `interest` DECIMAL(10,2), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): SHOW INDEX FROM `User_IIs`
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Rates` (`id` INTEGER NOT NULL auto_increment , `A` DECIMAL(10,2) NOT NULL, `B` DECIMAL(10,2) NOT NULL, `C` DECIMAL(10,2) NOT NULL, `A_1` DECIMAL(10,2) NOT NULL, `A_3` DECIMAL(10,2) NOT NULL, `B_1` DECIMAL(10,2) NOT NULL, `B_3` DECIMAL(10,2) NOT NULL, `L_s` DECIMAL(10,2) NOT NULL, `L_m` DECIMAL(10,2) NOT NULL, `L_l` DECIMAL(10,2) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2021-12-06 21:09:24] [DEBUG]: Executing (default): SHOW INDEX FROM `Rates`
+
