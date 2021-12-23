@@ -1,6 +1,6 @@
 require("./init"); // modal包括了 所有前端过来的请求 
  
-console.log("nodemon test : ",12);
+console.log("nodemon test : ",123);
 // 
 const BK = require('./services/bankService')
 const Admin = require('./services/adminService')
