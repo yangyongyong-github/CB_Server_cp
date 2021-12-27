@@ -40,7 +40,7 @@ router.post(
   })
 );
 
-// updata: all
+// updata: useri userii
 router.post(
   "/updata",
   asyncHandler(async (req) => {

@@ -22,7 +22,7 @@ exports.login = async function (loginId, loginPwd) {
         方式2 使用JS逻辑(use)
   */
     if (result && result.loginId === loginId && result.loginPwd === loginPwd) {
-        console.log(" >userii login done : ", result.toJSON());
+        console.log(" > userii login done : ", result.toJSON());
         return result.toJSON();
     }
     return null;

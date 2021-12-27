@@ -128,7 +128,10 @@ exports.addUser = async function (userObj) {
     return JSON.parse(JSON.stringify(result));
 };
 
-// findAndCountAll
+/**
+ * findAndCountAll
+ * @returns 
+ */
 exports.getAllUserCount = async function () {
     // const result = await User.findAndCountAll(); 
     const result = await User.findAndCountAll({
@@ -139,11 +142,12 @@ exports.getAllUserCount = async function () {
          where: { sex: 0 }
      }); */
     return {
-        Count: result.count,
-        datas: JSON.parse(JSON.stringify(result.rows)),// 输出数据为 attributes中定义好的
+        Count: result.count, // 总人数
+        datas: JSON.parse(JSON.stringify(result.rows)),// 输出数据为 attributes中定义好的 // 总额度
     };
 
 };
+
 
 /* 
   default return result: 默认返回结果

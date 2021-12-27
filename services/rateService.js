@@ -5,7 +5,7 @@ const Rate = require("../models/Rate");
  * 传入id 拿到这里列的所有值
  * 整体取出式
  */
-exports.getRate = async function (id) {
+exports.getRateById = async function (id) {
     const result = await Rate.findOne({
         where: {
             id

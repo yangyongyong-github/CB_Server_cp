@@ -43,8 +43,9 @@ app.use(express.json());
 app.use("/api/admin", require("./api/admin"));
 app.use("/api/useri", require("./api/useri"))
 app.use("/api/userii", require("./api/userii"))
-app.use("/api/rate", require("./api/rate"))// rate request api
-// app.use("/api/userii", require("./api/userii"))
+app.use("/api/rate", require("./api/rate"))
+
+app.use('/api/users', require('./api/users')) // 获得所有用户信息 admin
 
 // 处理错误的中间件
 app.use(require("./errorMiddleware"));
