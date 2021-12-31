@@ -8,7 +8,7 @@ const BankTemp = require('./bankQuery')
  * @param {*} bankObj 
  * @returns 
  */
- exports.addBank = async function (bankObj) {
+exports.addBank = async function (bankObj) {
     // 应该判断adminObj的各种属性是否合理，以及账号是否已存在
 
     // 首先跑一边查询，去数据库中查询该账号是否存在
@@ -26,5 +26,17 @@ const BankTemp = require('./bankQuery')
             return ins.toJSON();
         }
     })
+}
+
+/**
+ * 更新银行信息
+ */
+exports.updateBankInfo = async function (userObj) {
+    const result = await BankTemp.update(userObj, {
+        where: {
+            id
+        }
+    });
+    return result;
 }
 

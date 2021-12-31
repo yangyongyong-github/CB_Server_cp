@@ -2,6 +2,7 @@
 const User = require("../models/User_I");
 const userTemp = require("./useri_Query")
 
+
 /**
  * 登录验证函数
  * 通用: admin user_i user_ii
@@ -105,15 +106,17 @@ exports.addUser = async function (userObj) {
 }
 
 
-// exports.updateUser = async function (id, userObj) {
-//     const result = await User.update(userObj, {
-//         where: {
-//             id,
-//         }
-//     });
-//     return result;
-// }
-
+/**
+ * 部分 个人信息 
+ */
+ exports.updateUser = async function (userObj) {
+    const result = await User.update(userObj, {
+        where: {
+            loginId: userObj.loginId
+        }
+    });
+    return result;
+}
 
 
 

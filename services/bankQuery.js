@@ -12,7 +12,9 @@ exports.getBankByBankId = async function (bankId) {
             bankId
         }
     })
+
     if (result) {
+        console.log('bank query : ', result);
         return result.toJSON();
     } else {
         return null;

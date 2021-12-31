@@ -70,7 +70,7 @@ module.exports = sequelize.define(
         },
         ident: { // 1 个人 2 企业
             type: DataTypes.INTEGER,// 数字
-            allowNull: false,
+            allowNull: true,
         },
         loan: {
             type: DataTypes.DECIMAL(10, 2),

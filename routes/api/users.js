@@ -12,10 +12,10 @@ const userII = require('../../services/userii_Service');
 const { asyncHandler } = require("../getSendResult");
 
 router.post(
-    '/users',
-    asyncHandler(async (req) => {
-        const I = await userI.getAllUserCount(req.body);
-        const II = await userII.getAllUserCount();
+    '/query',
+    asyncHandler(async () => {
+        const I = await userI.getAllUser();
+        const II = await userII.getAllUser();
 
         const result = [];
         result.push(I);
@@ -23,6 +23,7 @@ router.post(
         // const result = Object.assign({}, I) 容易导致覆盖，数据丢失
 
         if (result) {
+            console.log('> users : ',result);
             return result;
         } else {
             console.log('get fail')
