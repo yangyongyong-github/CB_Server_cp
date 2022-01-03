@@ -22,13 +22,13 @@ exports.getRateById = async function (id) {
 /**
  * 管理员 修改数据库中的利率表
  * @param {*} id 
- * @param {*} valueObj 
+ * @param {*} rateObj 
  * @returns 
  */
-exports.updateRate = async function (id, valueObj) {
-    const result = await Rate.update(valueObj, {
+exports.update = async function (id, rateObj) {
+    const result = await Rate.update(rateObj, {
         where: {
-            id
+           bankId: id
         }
     });
     return result;
@@ -36,6 +36,7 @@ exports.updateRate = async function (id, valueObj) {
 
 /**
  * 管理员 添加一条利率
+ *  暂时不用
  * @param {*} rateObj 
  * @returns 
  */

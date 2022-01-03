@@ -23,7 +23,8 @@ router.post(
         // const result = Object.assign({}, I) 容易导致覆盖，数据丢失
 
         if (result) {
-            console.log('> users : ',result);
+            // console.log('> users : ',result);
+            console.log('all users(useri&userii) get done .')
             return result;
         } else {
             console.log('get fail')

@@ -31,12 +31,15 @@ exports.addBank = async function (bankObj) {
 /**
  * 更新银行信息
  */
-exports.updateBankInfo = async function (userObj) {
-    const result = await BankTemp.update(userObj, {
+exports.update = async function (id, obj) {
+    console.log('> prepare : ', id, obj)
+    const result = await Bank.update(obj, {
         where: {
             id
         }
     });
+    if (result) {
+        console.log('to write db :', result)
+    }
     return result;
 }
-

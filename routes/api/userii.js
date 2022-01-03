@@ -42,7 +42,7 @@ router.post(
 
 // updata: useri userii
 router.post(
-  "/updata",
+  "/update",
   asyncHandler(async (req) => {
     console.log("api / userii : ", req.body); //req.body : 用户传过来的 userObj
     const result = await userIIServ.updateUser(req.body);

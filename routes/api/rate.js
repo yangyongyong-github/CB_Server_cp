@@ -22,13 +22,11 @@ router.post(
  * admin-h 修改 rate
  */
 router.post(
-    '/updata',
+    '/update',
     asyncHandler(async (req, res) => {
-        const result = await rateServ.getRate(req.body.id, req.body.rateObj);
-        // 通过该id能都拿到对应的信息
-        if (result) {
-            let value = result.id;
-            jwt.publish(res, undefined, { id: value });
+        const result = await rateServ.update(req.body.id, req.body.rateObj);
+     if (result) {
+          console.log('result : ',result)
         }
         return result;
     })
