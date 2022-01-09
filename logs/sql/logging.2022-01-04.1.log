@@ -1,0 +1,82 @@
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Banks` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `bankId` VARCHAR(255) NOT NULL, `corpus` DECIMAL(10,2), `flag` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): SHOW INDEX FROM `Banks`
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `rank` VARCHAR(255) NOT NULL, `flag` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): SHOW INDEX FROM `Admins`
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_Is` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `limited` TINYINT(1) NOT NULL, `isFreezed` TINYINT(1) NOT NULL, `ident` INTEGER, `loan` DECIMAL(10,2), `interest` DECIMAL(10,2), `company` TEXT, `cause` TEXT, `flag` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): SHOW INDEX FROM `User_Is`
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `User_IIs` (`id` INTEGER NOT NULL auto_increment , `name` TEXT NOT NULL, `account` VARCHAR(255) NOT NULL, `loginId` VARCHAR(255) NOT NULL, `loginPwd` VARCHAR(255) NOT NULL, `sex` TINYINT(1) NOT NULL, `birthday` DATETIME NOT NULL, `mobile` VARCHAR(11) NOT NULL, `job` TEXT, `isFreezed` TINYINT(1) NOT NULL, `deposit` DECIMAL(10,2), `interest` DECIMAL(10,2), `flag` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): SHOW INDEX FROM `User_IIs`
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): CREATE TABLE IF NOT EXISTS `Rates` (`id` INTEGER NOT NULL auto_increment , `A` DECIMAL(10,2) NOT NULL, `B` DECIMAL(10,2) NOT NULL, `C` DECIMAL(10,2) NOT NULL, `A_1` DECIMAL(10,2) NOT NULL, `A_3` DECIMAL(10,2) NOT NULL, `B_1` DECIMAL(10,2) NOT NULL, `B_3` DECIMAL(10,2) NOT NULL, `L_s` DECIMAL(10,2) NOT NULL, `L_m` DECIMAL(10,2) NOT NULL, `L_l` DECIMAL(10,2) NOT NULL, `flag` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `deletedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+sql [2022-01-04 16:37:52] [DEBUG]: Executing (default): SHOW INDEX FROM `Rates`
+
+sql [2022-01-04 16:39:35] [DEBUG]: Executing (default): SELECT `id`, `A`, `B`, `C`, `A_1`, `A_3`, `B_1`, `B_3`, `L_s`, `L_m`, `L_l`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Rates` AS `Rate` WHERE (`Rate`.`deletedAt` IS NULL AND `Rate`.`id` = 1);
+
+sql [2022-01-04 16:39:36] [DEBUG]: Executing (default): SELECT `id`, `name`, `bankId`, `corpus`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Banks` AS `Bank` WHERE (`Bank`.`deletedAt` IS NULL AND `Bank`.`bankId` = 'CBNo1') LIMIT 1;
+
+sql [2022-01-04 16:39:37] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `ident`, `loan`, `interest`, `company`, `cause`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_Is` AS `User_I` WHERE (`User_I`.`deletedAt` IS NULL);
+
+sql [2022-01-04 16:39:37] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:04:28] [DEBUG]: Executing (default): SELECT `id`, `name`, `loginId`, `loginPwd`, `rank`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin-master' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2022-01-04 17:08:09] [DEBUG]: Executing (default): SELECT `id`, `A`, `B`, `C`, `A_1`, `A_3`, `B_1`, `B_3`, `L_s`, `L_m`, `L_l`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Rates` AS `Rate` WHERE (`Rate`.`deletedAt` IS NULL AND `Rate`.`id` = 1);
+
+sql [2022-01-04 17:08:10] [DEBUG]: Executing (default): SELECT `id`, `name`, `bankId`, `corpus`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Banks` AS `Bank` WHERE (`Bank`.`deletedAt` IS NULL AND `Bank`.`bankId` = 'cb1') LIMIT 1;
+
+sql [2022-01-04 17:08:11] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `ident`, `loan`, `interest`, `company`, `cause`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_Is` AS `User_I` WHERE (`User_I`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:08:11] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:12:13] [DEBUG]: Executing (default): SELECT `id`, `name`, `loginId`, `loginPwd`, `rank`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin-master' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2022-01-04 17:22:02] [DEBUG]: Executing (default): SELECT `id`, `A`, `B`, `C`, `A_1`, `A_3`, `B_1`, `B_3`, `L_s`, `L_m`, `L_l`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Rates` AS `Rate` WHERE (`Rate`.`deletedAt` IS NULL AND `Rate`.`id` = 1);
+
+sql [2022-01-04 17:22:03] [DEBUG]: Executing (default): SELECT `id`, `name`, `bankId`, `corpus`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Banks` AS `Bank` WHERE (`Bank`.`deletedAt` IS NULL AND `Bank`.`bankId` = 'cb1') LIMIT 1;
+
+sql [2022-01-04 17:22:05] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `ident`, `loan`, `interest`, `company`, `cause`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_Is` AS `User_I` WHERE (`User_I`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:22:05] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:23:00] [DEBUG]: Executing (default): SELECT `id`, `name`, `loginId`, `loginPwd`, `rank`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin-master' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2022-01-04 17:23:27] [DEBUG]: Executing (default): SELECT `id`, `A`, `B`, `C`, `A_1`, `A_3`, `B_1`, `B_3`, `L_s`, `L_m`, `L_l`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Rates` AS `Rate` WHERE (`Rate`.`deletedAt` IS NULL AND `Rate`.`id` = 1);
+
+sql [2022-01-04 17:23:29] [DEBUG]: Executing (default): SELECT `id`, `name`, `bankId`, `corpus`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Banks` AS `Bank` WHERE (`Bank`.`deletedAt` IS NULL AND `Bank`.`bankId` = 'cb1') LIMIT 1;
+
+sql [2022-01-04 17:23:30] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `ident`, `loan`, `interest`, `company`, `cause`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_Is` AS `User_I` WHERE (`User_I`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:23:30] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL);
+
+sql [2022-01-04 17:23:32] [DEBUG]: Executing (default): SELECT `id`, `name`, `loginId`, `loginPwd`, `rank`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin-master' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2022-01-04 18:12:24] [DEBUG]: Executing (default): SELECT `id`, `A`, `B`, `C`, `A_1`, `A_3`, `B_1`, `B_3`, `L_s`, `L_m`, `L_l`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Rates` AS `Rate` WHERE (`Rate`.`deletedAt` IS NULL AND `Rate`.`id` = 1);
+
+sql [2022-01-04 18:12:25] [DEBUG]: Executing (default): SELECT `id`, `name`, `bankId`, `corpus`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Banks` AS `Bank` WHERE (`Bank`.`deletedAt` IS NULL AND `Bank`.`bankId` = 'cb1') LIMIT 1;
+
+sql [2022-01-04 18:12:26] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `ident`, `loan`, `interest`, `company`, `cause`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_Is` AS `User_I` WHERE (`User_I`.`deletedAt` IS NULL);
+
+sql [2022-01-04 18:12:26] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL);
+
+sql [2022-01-04 18:17:28] [DEBUG]: Executing (default): SELECT `id`, `A`, `B`, `C`, `A_1`, `A_3`, `B_1`, `B_3`, `L_s`, `L_m`, `L_l`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Rates` AS `Rate` WHERE (`Rate`.`deletedAt` IS NULL AND `Rate`.`id` = 1);
+
+sql [2022-01-04 18:17:29] [DEBUG]: Executing (default): SELECT `id`, `name`, `bankId`, `corpus`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Banks` AS `Bank` WHERE (`Bank`.`deletedAt` IS NULL AND `Bank`.`bankId` = 'cb1') LIMIT 1;
+
+sql [2022-01-04 18:17:30] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `limited`, `isFreezed`, `ident`, `loan`, `interest`, `company`, `cause`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_Is` AS `User_I` WHERE (`User_I`.`deletedAt` IS NULL);
+
+sql [2022-01-04 18:17:30] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL);
+
+sql [2022-01-04 18:17:32] [DEBUG]: Executing (default): SELECT `id`, `name`, `loginId`, `loginPwd`, `rank`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin-master' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+
+sql [2022-01-04 18:38:56] [DEBUG]: Executing (default): SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `User_IIs` AS `User_II` WHERE (`User_II`.`deletedAt` IS NULL AND `User_II`.`account` = 'yangxiang01') LIMIT 1;
+
+sql [2022-01-04 19:55:37] [DEBUG]: Executing (default): SELECT `id`, `name`, `loginId`, `loginPwd`, `rank`, `flag`, `createdAt`, `updatedAt`, `deletedAt` FROM `Admins` AS `Admin` WHERE (`Admin`.`deletedAt` IS NULL AND (`Admin`.`loginId` = 'admin-master' AND `Admin`.`loginPwd` = '1234')) LIMIT 1;
+

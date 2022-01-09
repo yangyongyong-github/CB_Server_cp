@@ -109,7 +109,7 @@ exports.addUser = async function (userObj) {
 /**
  * 部分 个人信息 
  */
- exports.updateUser = async function (userObj) {
+exports.updateUser = async function (userObj) {
     const result = await User.update(userObj, {
         where: {
             loginId: userObj.loginId
@@ -123,12 +123,24 @@ exports.addUser = async function (userObj) {
 // ==============================================
 
 /**
- * 拿到所有的用户
+ * 拿到 贷款用户最多的前三位
  * @returns 
  */
- exports.getAllUser = async function () {
-    const result = await User.findAll();
-    return JSON.parse(JSON.stringify(result));
+const Sequelize = require('sequelize');
+
+exports.getAllUser = async function () {
+    const users = await User.findAll({
+        order: Sequelize.literal('loan') // 默认升序
+    });
+
+    const result = JSON.parse(JSON.stringify(users));
+
+    const usersTop = [];
+    usersTop.push(result[result.length - 1]); // max
+    usersTop.push(result[result.length - 2]); // max-1(前一位)
+    usersTop.push(result[result.length - 3]); // max-2
+    // console.log(userTop)
+    return usersTop;
 };
 
 /**

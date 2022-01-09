@@ -71,13 +71,49 @@ exports.updateUser = async function (userObj) {
 
 // ==============================================
 
+// https://sequelize.org/v5/manual/querying.html
+
 /**
- * 拿到所有的用户
+ * 拿到所有的用户 -> 拿到各前5条，既 id <=5 的
  * @returns 
  */
+const Sequelize = require('sequelize');
+// const Op = Sequelize.Op;
+
 exports.getAllUser = async function () {
-    const result = await User.findAll();
-    return JSON.parse(JSON.stringify(result));
+    // const result = await User.findAll();
+
+    // const result = await Sequelize.query("SELECT `id`, `name`, `account`, `loginId`, `loginPwd`, `sex`, `birthday`, `mobile`, `job`, `isFreezed`, `deposit`, `interest`, `flag`,FROM `chinabankdb.user_iis` where id <= 5  order by `deposit` desc", { type: Sequelize.QueryTypes.SELECT}).then(users => {
+    //    console.log('hihi', users)
+    //   })
+
+   
+    /**
+     * 找出存款数最多的前三位用户
+     */
+    const users = await User.findAll({
+        
+        // where: {
+        //     id: {
+        //         [Op.lte]: 3 // [Op.lte]: 10,  // <= 10
+        //     }
+        // },
+    //    order:[
+    //     [ Sequelize.fn('max', Sequelize.col('deposit')), 'DESC'],
+    //    ]
+        // order: Sequelize.literal('max(age) DESC')
+        order: Sequelize.literal('deposit') // 默认升序
+      
+    });
+    const result = JSON.parse(JSON.stringify(users));
+    // console.log(result)
+    const usersTop =[];
+    usersTop.push(result[result.length-1]); // max
+    usersTop.push(result[result.length-2]); // max-1(前一位)
+    usersTop.push(result[result.length-3]); // max-2
+    // console.log(userTop)
+   return usersTop;
+
 };
 
 // findAndCountAll
@@ -88,7 +124,7 @@ exports.getAllUserCount = async function () {
     });
     /*  const result = await User.findAndCountAll({
          attributes: ["loginId", "account", "name", "sex", "deposit", "interest"],
-         where: { sex: 0 }
+         where: { sex: 0 } 
      }); */
     return {
         Count: result.count,
