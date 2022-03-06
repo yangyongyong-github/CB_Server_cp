@@ -13,10 +13,6 @@ module.exports = sequelize.define(
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
     },
-    C: { // 无限制
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
-    },
     // 存款时间和利率
     // 大额:
     A_1: { // 1-3year(不满一年按一年算) 2.44 * 0.01
